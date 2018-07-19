@@ -54,4 +54,5 @@ lua_draw_hook_pre clock_rings
 TEXT
 ${voffset 8}${font caviar dreams:size=32}${alignc}${time %A}${font}${voffset -8}${font caviar dreams:size=76}   ${time %e}${font}
 ${voffset -70}${font caviar dreams:size=34}${alignc}${time %b}${font}${voffset -5}   ${font caviar dreams:size=40}${time %Y}  ${font}${hr}
+${voffset -28}${exec ./.getWeather.sh}
 ${voffset 550}
