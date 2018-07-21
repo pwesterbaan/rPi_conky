@@ -1,5 +1,5 @@
 clock_x=350
-clock_y=480
+clock_y=525
 
 ring_sep=35
 ring_gap=2
@@ -173,7 +173,7 @@ function conky_clock_rings()
         str=string.format('${%s %s}',pt['name'],pt['arg'])
         if str=='${time %I.%M}' or str=='${time %M.%S}' then
           -- Use hours=0 so that 12:xx doesn't fill the hour ring
-          if str=='${time %I.%M}' and tonumber(conky_parse(str)) > 12 then
+          if str=='${time %I.%M}' and tonumber(conky_parse(str)) >= 12 then
             str=conky_parse(str)-12
           end
           -- The following statement converts 00-59 mins to 00-99 decimals
