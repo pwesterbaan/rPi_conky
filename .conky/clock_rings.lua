@@ -1,7 +1,7 @@
-clock_x=350
-clock_y=525
+clock_x=720
+clock_y=350
 
-ring_sep=35
+ring_sep=25
 ring_gap=2
 ring_thickness=ring_sep-ring_gap
 hour_ring=150

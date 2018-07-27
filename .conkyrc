@@ -1,7 +1,5 @@
-
-
 background yes
-update_interval 0.5
+update_interval 1
 
 cpu_avg_samples 2
 net_avg_samples 2
@@ -11,7 +9,7 @@ override_utf8_locale yes
 double_buffer yes
 no_buffers yes
 
-text_buffer_size 2048
+text_buffer_size 1024
 
 temperature_unit fahrenheit
 
@@ -26,13 +24,13 @@ own_window_argb_value 100
 border_inner_margin 0
 border_outer_margin 0
 
-minimum_size  700
---maximum_width 700
+minimum_size  994
+maximum_width 994
 
 
 -- Graphics settings 
 draw_shades no
-alignment mm
+alignment mr
 draw_outline no
 draw_borders no
 draw_graph_borders no
@@ -51,8 +49,9 @@ lua_load ~/.conky/clock_rings.lua
 lua_draw_hook_pre clock_rings
 --lua_load ./marks.lua
 TEXT
-${voffset 60}${font caviar dreams:size=32}${alignc}${time %A}${font}${voffset -10}${font caviar dreams:size=76}    ${time %e}${font}
-${voffset -50}${font caviar dreams:size=34}${alignc}${time %b}${font}${voffset 5} ${font caviar dreams:size=40}${time %Y} ${font}${hr}
-${voffset 550}${execi 900 ./.getWeather.sh}${alignr}${font caviar dreams:size=15}${offset 70}${addr wlan0}
-${hr}${font Liberation Mono:size=20}
-${execi 10 head ~/.config/pianobar/nowplaying}
+${voffset 85}${font caviar dreams:size=32}${time %A}${font}${voffset -10}${font caviar dreams:size=76}  ${time %e}${font}
+${voffset -50}${font caviar dreams:size=34}${time %b}${font}${voffset 5} ${font caviar dreams:size=40}${time %Y} ${font}
+${voffset 115}${execi 900 ./getWeather.sh}${alignr}${font caviar dreams:size=15}
+${voffset 85}${font Liberation Mono:size=20}
+${execi 10 head ~/.config/pianobar/nowplaying}${alignr}${addr wlan0}  
+${voffset 0} #Why does this line need to be here?
