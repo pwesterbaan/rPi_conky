@@ -37,7 +37,7 @@ draw_graph_borders no
 
 -- Text settings 
 use_xft yes
-xftfont caviar dreams:size=25
+xftfont caviar dreams:size=30
 xftalpha 0.5
 
 default_color FFFFFF
@@ -49,9 +49,9 @@ lua_load ~/.conky/clock_rings.lua
 lua_draw_hook_pre clock_rings
 --lua_load ./marks.lua
 TEXT
-${voffset 85}${font caviar dreams:size=32}${time %A}${font}${voffset -10}${font caviar dreams:size=76}  ${time %e}${font}
+${voffset 100}${font caviar dreams:size=32}${time %A}${font}${voffset -10}${font caviar dreams:size=76}  ${time %e}${font}
 ${voffset -50}${font caviar dreams:size=34}${time %b}${font}${voffset 5} ${font caviar dreams:size=40}${time %Y} ${font}
-${voffset 115}${execi 900 ./getWeather.sh}${alignr}${font caviar dreams:size=15}
-${voffset 85}${font Liberation Mono:size=20}
+${voffset 105}${execi 900 ./getWeather.sh}${alignr}
+${voffset 75}${font Liberation Mono:size=25}
 ${execi 10 head ~/.config/pianobar/nowplaying}${alignr}${addr wlan0}  
 ${voffset 0} #Why does this line need to be here?
