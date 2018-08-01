@@ -164,6 +164,27 @@ function draw_clock_hands(cr,xc,yc)
     end
 end
 
+function draw_graduations(display)
+    -- graduations marks
+    local x, y = clock_x, clock_y
+    local graduation_radius = 61
+    local graduation_thickness, graduation_mark_thickness = 5, 1.5
+    local graduation_unit_angle = 30
+    local graduation_fg_colour, graduation_fg_alpha = 0xFFFFFF, 0.75
+    if graduation_radius > 0 and graduation_thickness > 0 and graduation_unit_angle > 0 then
+        local nb_graduation = 360 / graduation_unit_angle
+        local i = 0
+        while i < nb_graduation do
+            cairo_set_line_width(display, graduation_thickness)
+            cairo_arc(display, x, y, graduation_radius, (((graduation_unit_angle * i)-(graduation_mark_thickness/2))*(2*math.pi/360))-(math.pi/2),(((graduation_unit_angle * i)+(graduation_mark_thickness/2))*(2*math.pi/360))-(math.pi/2))
+            cairo_set_source_rgba(display,rgb_to_r_g_b(graduation_fg_colour,graduation_fg_alpha))
+            cairo_stroke(display)
+            cairo_set_line_width(display, graph_thickness)
+            i = i + 1
+        end
+    end
+end
+
 function conky_clock_rings()
     local function setup_rings(cr,pt)
         local str=''
@@ -201,6 +222,9 @@ function conky_clock_rings()
         for i in pairs(settings_table) do
             setup_rings(cr,settings_table[i])
         end
+        -- Adapted from Distro-Clock-Conky
+        -- https://www.noobslab.com/2013/03/install-distro-clock-conky-in.html
+        draw_graduations(cr)
     end
     
     draw_clock_hands(cr,clock_x,clock_y)
