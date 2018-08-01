@@ -28,14 +28,14 @@ minimum_size  994
 maximum_width 994
 
 
--- Graphics settings 
+# Graphics settings 
 draw_shades no
 alignment mr
 draw_outline no
 draw_borders no
 draw_graph_borders no
 
--- Text settings 
+# Text settings 
 use_xft yes
 xftfont caviar dreams:size=35
 xftalpha 0.5
@@ -44,10 +44,9 @@ default_color FFFFFF
 
 times_in_seconds true
 
--- Lua Load 
+# Lua Load 
 lua_load ~/.conky/clock_rings.lua
 lua_draw_hook_pre clock_rings
---lua_load ./marks.lua
 TEXT
 ${voffset 110}${font caviar dreams:size=32}${time %A}${font}${voffset -10}${font caviar dreams:size=76}  ${time %e}${font}
 ${voffset -50}${font caviar dreams:size=34}${time %b}${font}${voffset 5} ${font caviar dreams:size=40}${time %Y} ${font}
